@@ -1,0 +1,27 @@
+{
+  "name": "test-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react-native": "*",
+    "expo": "*",
+    "expo-dev-client": "*",
+    "expo-status-bar": "*",
+    "expo-splash-screen": "*",
+    "expo-structured-headers": "*",
+    "expo-updates": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-reanimated": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
+    "react-native-svg": "*",
+    "react-native-web": "*"
+  },
+  "scripts": {
+    "eas-build-pre-install": "cd ../../ && cp package-lock.json ./apps/test-app/",
+    "eas-android": "eas build -p android --profile development",
+    "postinstall": "rm -r node_modules && cd ../../ && npm install && npx nx sync-deps test-app && npx nx ensure-symlink test-app"
+  }
+}
